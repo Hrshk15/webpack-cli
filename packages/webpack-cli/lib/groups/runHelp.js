@@ -100,7 +100,7 @@ const outputHelp = (args) => {
     } else {
         let flagsToDisplay = flags.filter(({ help }) => help === 'base'); // basic options only one word
         if (args.includes('verbose') || args.includes('--help=verbose')) {
-            flagsToDisplay = flags.filter(({ help }) => help === 'verbose');
+            flagsToDisplay = flags;
         }
         const negatedFlags = flagsToDisplay
             .filter((flag) => flag.negative)

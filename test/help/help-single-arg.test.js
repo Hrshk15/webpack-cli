@@ -34,7 +34,7 @@ describe('single help flag', () => {
         expect(stderr).toBeFalsy();
         expect(stdout).toContain(helpHeader);
         expect(stdout).toContain('--merge');
-        expect(stdout).not.toContain('--config-name'); // an advanced option
+        expect(stdout).not.toContain('--config-name'); // verbose
     });
 
     it('outputs advanced help info with dashed syntax', () => {
@@ -43,7 +43,8 @@ describe('single help flag', () => {
         expect(exitCode).toBe(0);
         expect(stderr).toBeFalsy();
         expect(stdout).toContain(helpHeader);
-        expect(stdout).toContain('--config-name'); // an advanced option
+        expect(stdout).toContain('--config-name'); // verbose
+        expect(stdout).toContain('--config'); // base
     });
 
     it('outputs advanced help info with command syntax', () => {
@@ -52,7 +53,8 @@ describe('single help flag', () => {
         expect(exitCode).toBe(0);
         expect(stderr).toBeFalsy();
         expect(stdout).toContain(helpHeader);
-        expect(stdout).toContain('--config-name'); // an advanced option
+        expect(stdout).toContain('--config-name'); // verbose
+        expect(stdout).toContain('--config'); // base
     });
 
     it('outputs advanced help info with --help=verbose', () => {
@@ -60,7 +62,8 @@ describe('single help flag', () => {
 
         expect(exitCode).toBe(0);
         expect(stdout).toContain(helpHeader);
-        expect(stdout).toContain('--config-name'); // an advanced option
-        expect(stderr).toHaveLength(0);
+        expect(stdout).toContain('--config-name'); // verbose
+        expect(stdout).toContain('--config'); // base
+        expect(stderr).toBeFalsy();
     });
 });
